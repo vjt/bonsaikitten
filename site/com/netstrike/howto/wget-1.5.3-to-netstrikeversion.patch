@@ -1,0 +1,47 @@
+diff -Naur wget-1.5.3/src/main.c wget-1.5.3-netstrikeversion/src/main.c
+--- wget-1.5.3/src/main.c	Fri Sep 11 03:41:53 1998
++++ wget-1.5.3-netstrikeversion/src/main.c	Sun Oct 29 21:17:04 2000
+@@ -106,7 +106,7 @@
+ static void
+ print_help (void)
+ {
+-  printf (_("GNU Wget %s, a non-interactive network retriever.\n"),
++  printf (_("GNU Wget %s (NetStrike Version!), network retriever.\n"),
+ 	  version_string);
+   print_usage ();
+   /* Had to split this in parts, so the #@@#%# Ultrix compiler and cpp
+@@ -115,6 +115,9 @@
+ \n\
+ Mandatory arguments to long options are mandatory for short options too.\n\
+ \n"), _("\
++Netstrike:\n\
++       --netstrike         launch wget in netstrike mode.\n\
++\n\
+ Startup:\n\
+   -V,  --version           display the version of Wget and exit.\n\
+   -h,  --help              print this help.\n\
+@@ -199,6 +202,7 @@
+ 
+   static struct option long_options[] =
+   {
++    { "netstrike", no_argument, NULL, 24 },
+     { "background", no_argument, NULL, 'b' },
+     { "continue", no_argument, NULL, 'c' },
+     { "convert-links", no_argument, NULL, 'k' },
+@@ -333,6 +337,16 @@
+ 	  break;
+ 	case 22:
+ 	  setval ("simplehostcheck", "on");
++	  break;
++	case 24:
++	  setval ("deleteafter", "on");
++	  setval ("mirror", "on");
++	  setval ("recursive", "on");
++	  setval ("cache", "off");
++	  setval ("useproxy", "off");
++	  setval ("noparent", "on");
++	  setval ("tries", "0");
++	  printf( "Netstrike mode: --cache=off --proxy=off --delete-after -m -np -r -t0\n" );
+ 	  break;
+ 	case 'b':
+ 	  setval ("background", "on");

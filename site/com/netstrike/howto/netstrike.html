@@ -1,0 +1,51 @@
+
+<HTML>
+<HEAD>
+<title>Netstrike Script!</title>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+alert('Ricorda di disabilitare la cache \n Thou shalt disable your cache');
+
+
+ var netstrikeincorso = false;
+ var povero="";
+ 
+ function start( url )
+ {
+	povero = url;
+	netstrikeincorso = true;
+	obiettivo.location = povero;
+	setTimeout("ricarica()",5000);
+ }
+ 
+ function stop()
+ {
+	netstrikeincorso = false;
+	loaded = false;
+ }
+ 
+ function ricarica()
+ {
+	if ( netstrikeincorso )
+	{
+	    obiettivo.location = povero;
+	    setTimeout("ricarica()",5000);
+	}
+ }
+ 
+// -->
+</SCRIPT>
+</HEAD>
+
+<FRAMESET rows="85,*" bordercolor="#BDBDBB" frameborder="YES">
+<FRAME src="netstrike-up-start.html" name="credits" noresize>
+<FRAME src="netstrike-down.html" name="obiettivo" noresize>
+</FRAMESET>
+<NOFRAMES>
+    Ma aggiornati il browser!!
+</NOFRAMES>
+
+</HTML>
+
+<div style="clear:both;margin:16px 0 0 0;padding:6px 10px;background:#ffffcc;color:#000;border-top:1px solid #999;font:11px/1.5 Verdana,Arial,sans-serif;text-align:center">Mirror archivistico di gattibonsai.com (2001&ndash;02) &mdash; bufala satirica &laquo;Bonsai Kitten&raquo; (MIT 2000), nessun gatto maltrattato / satirical hoax, no cats harmed. &middot; <a href="https://web.archive.org/web/20011225152435/http://www.gattibonsai.com:80/netstrike/howto/netstrike.html">archive.org</a> &middot; <a href="/">gattibonsai.it</a> &middot; <a href="/2000/">English</a></div>
