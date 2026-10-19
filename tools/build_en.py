@@ -25,6 +25,7 @@ SRC, OUT = sys.argv[1], sys.argv[2]
 MAIL = "gatti@sindro.me"
 MAILS = re.compile(r"[\w.-]+@bonsaikitt(?:en|y)\.com")
 CSS_V = hashlib.sha256(open(os.path.join(OUT, "css", "bk.css"), "rb").read()).hexdigest()[:8]
+GATTI_V = hashlib.sha256(open(os.path.join(OUT, "..", "css", "gatti.css"), "rb").read()).hexdigest()[:8]
 
 # page -> nav section it belongs to
 PAGES = {
@@ -340,7 +341,7 @@ def render(name, section):
 <title>{esc(title)}</title>
 {'<link rel="alternate" hreflang="it" href="https://gatti.sindro.me/">' + chr(10) + '<link rel="alternate" hreflang="en" href="https://gatti.sindro.me/en/">' + chr(10) if name == "index" else ""}<meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#000000">
-<link rel="stylesheet" href="/css/gatti.css">
+<link rel="stylesheet" href="/css/gatti.css?v={GATTI_V}">
 <link rel="stylesheet" href="{up}css/bk.css?v={CSS_V}">
 <script>document.documentElement.className+=' js'</script>
 <script src="/js/gatti.js" defer></script>

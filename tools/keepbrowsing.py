@@ -11,6 +11,12 @@ WORDS = {
     "en": {"next": "Next:", "back": "Back:", "aria": "Keep browsing", "home": "Home"},
 }
 
+# The other language's home, same link as the one in the hamburger menu.
+SWITCH = {
+    "it": ("/en/", "en", "English"),
+    "en": ("/", "it", "Italiano"),
+}
+
 
 def block(lang, nav, current, href, parent=None, home=None, extra=()):
     """nav: [(key, label)]; current: page key; href(key) -> url;
@@ -40,6 +46,9 @@ def block(lang, nav, current, href, parent=None, home=None, extra=()):
                    f'{w["back"]} {e(label[prev])}</a>')
     others = ([home] if home and current != home[0] else []) + [
         (k, l) for k, l in list(nav) + list(extra) if k not in (current, nxt)]
+    to, code, name = SWITCH[lang]
+    out.append(f'<a class="lang" href="{to}" lang="{code}" hreflang="{code}" data-lang="{code}">'
+               f'<span aria-hidden="true">&#127760;</span> {name}</a>')
     out.append('<ul class="sections">' + "".join(
         f'<li><a href="{e(href(k))}">{e(l)}</a></li>' for k, l in others) + "</ul>")
     out.append("</nav>")

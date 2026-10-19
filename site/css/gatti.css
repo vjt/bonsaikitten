@@ -284,7 +284,7 @@ dialog.lb button::after { transform: rotate(-45deg); }
 .more .next .t { grid-column: 1; }
 .more .next .arrow { grid-column: 2; grid-row: 1 / span 2; font-size: 1.8rem; transition: transform .2s; }
 .more .next:hover .arrow, .more .next:focus-visible .arrow { transform: translateX(4px); }
-.more .prev {
+.more .prev, .more .lang {
   justify-self: start; display: inline-flex; align-items: center; gap: .4rem; min-height: 44px;
   padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
   font: 700 .95rem/1.2 var(--mono);
@@ -298,5 +298,5 @@ dialog.lb button::after { transform: rotate(-45deg); }
   border-radius: 12px; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow);
   font: 700 .95rem/1.2 var(--mono); text-align: center;
 }
-.more .sections a:hover, .more .prev:hover { border-color: var(--mag-ink); }
+.more .sections a:hover, .more .prev:hover, .more .lang:hover { border-color: var(--mag-ink); }
 .storia .more { text-align: left; }
